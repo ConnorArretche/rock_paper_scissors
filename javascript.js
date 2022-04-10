@@ -62,3 +62,5 @@ function main() {
 }
 
 main();
+
+console.log();
