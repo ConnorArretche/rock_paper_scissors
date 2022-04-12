@@ -6,10 +6,16 @@ body {
   text-align: center;
 }
 
-.decision {
+.outcome {
   text-align: center;
 }
 
 .btn-options {
   text-align: center;
+}
+
+.p-score,
+.c-score,
+.colon {
+  display: inline;
 }

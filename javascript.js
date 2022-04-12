@@ -1,8 +1,12 @@
 let scoreBoard = document.querySelector(".scoreboard");
-let decision = document.querySelector(".decision");
+let outcome = document.querySelector(".outcome");
 let rock = document.querySelector("#rock");
 let paper = document.querySelector("#paper");
 let scissors = document.querySelector("#scissors");
+let pScore = document.querySelector(".p-score");
+pScore.textContent = 0;
+let cScore = document.querySelector(".c-score");
+cScore.textContent = 0;
 
 //Random number between 0-2 for computer. Changes from number to r, p, s
 function computerSelection() {
@@ -11,39 +15,38 @@ function computerSelection() {
   return computerPick[random];
 }
 
-// function game(userChoice) {
-//   let computerChoice = computerSelection();
-//   console.log(`User choice is ${userChoice}`);
-//   console.log(`computer choice is ${computerChoice}`);
+// function win() {
+//   outcome.textContent = `You picked ${userChoice} and Computer picked: ${computerSelection} `;
+//   playerScore++;
 // }
 
 function game(userChoice) {
   let computerChoice = computerSelection();
   //ROCK
   if (userChoice == "rock" && computerChoice == "s") {
-    console.log(`You picked Rock and computer picked ${computerChoice}..Win`);
+    outcome.textContent = `You picked Rock and Computer picked Scissors..You Win!`;
+    pScore.innerHTML++;
   } else if (userChoice == "rock" && computerChoice == "p") {
-    console.log(`You picked Rock and computer picked ${computerChoice}...LOSE`);
+    outcome.textContent = `You picked Rock and Computer picked Paper..You Lose! :(`;
+    cScore.innerHTML++;
 
     //PAPER
   } else if (userChoice == "paper" && computerChoice == "r") {
-    console.log(`You picked Paper and computer picked ${computerChoice}.WIN!`);
+    outcome.textContent = `You picked Paper and Computer picked Rock..You Win!`;
+    pScore.innerHTML++;
   } else if (userChoice == "paper" && computerChoice == "s") {
-    console.log(`You picked Paper and computer picked ${computerChoice}.Lose!`);
+    outcome.textContent = `You picked Paper and Computer picked Scissors..You Lose! :(`;
+    cScore.innerHTML++;
 
     //SCISSORS
   } else if (userChoice == "scissors" && computerChoice == "r") {
-    console.log(
-      `You picked scissors and computer picked ${computerChoice}.Losee!`
-    );
+    outcome.textContent = `You picked Scissors and Computer picked Rock..You Lose! :(`;
+    cScore.innerHTML++;
   } else if (userChoice == "scissors" && computerChoice == "p") {
-    console.log(
-      `You picked scissors and computer picked ${computerChoice}.Winnerr!`
-    );
+    outcome.textContent = `You picked Scissors and Computer picked Paper..You Win!`;
+    pScore.innerHTML++;
   } else {
-    console.log(
-      `You picked ${userChoice} and computer picked ${computerChoice}... Tie`
-    );
+    outcome.textContent = `You picked ${userChoice} and computer picked ${computerChoice}... Tie`;
   }
 }
 
